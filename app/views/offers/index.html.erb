@@ -8,7 +8,7 @@
       <th>Category</th>
       <th>Price</th>
       <th>Description</th>
-      <th>Photo</th>
+      <th>1st photo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
         <td><%= offer.category %></td>
         <td><%= offer.price %></td>
         <td><%= offer.description %></td>
-        <td><%= image_tag(offer.photo.url, class: 'img-fluid') unless offer.photo.file.nil? %></td>
+        <td><%= image_tag(offer.photos[0].url, class: 'img-fluid') unless offer.photos.empty? %></td>
         <td><%= link_to 'Show', offer %></td>
         <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
         <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %></td>

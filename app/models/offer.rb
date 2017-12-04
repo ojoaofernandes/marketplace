@@ -4,6 +4,6 @@ class Offer < ApplicationRecord
 
   scope :all_ordered, -> { order view_count: :desc, title: :asc }
 
-  mount_uploader :photo, PhotoUploader
-  attr_accessor :photo_cache
+  mount_uploaders :photos, PhotoUploader
+  attr_accessor :photos_cache
 end
