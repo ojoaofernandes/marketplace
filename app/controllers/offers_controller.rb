@@ -11,6 +11,7 @@ class OffersController < ApplicationController
   # GET /offers/1
   # GET /offers/1.json
   def show
+    @offer.increment!(:view_count)
   end
 
   # GET /offers/new
