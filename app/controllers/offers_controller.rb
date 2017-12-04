@@ -1,6 +1,8 @@
 class OffersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  skip_load_and_authorize_resource only: :show
 
   # GET /offers
   # GET /offers.json
