@@ -1,4 +1,7 @@
 <%= title @offer.title %>
+<p>
+  <small class="text-muted">Published at <%= date_humanize @offer.created_at %></small>
+</p>
 
 <% if can? :manage, @offer %>
   <%= link_to "Edit", edit_offer_path(@offer), class: 'btn btn-sm btn-warning' %>
@@ -25,3 +28,11 @@
 
 <hr>
 
+<div class="row">
+  <div class="col-sm-9">
+    <%= title 'Related offers'%>
+    <hr>
+
+    <%= render 'home/offers', offers: @offers %>
+  </div>
+</div>

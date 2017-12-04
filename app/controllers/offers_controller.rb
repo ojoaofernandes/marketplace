@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   skip_load_and_authorize_resource only: :show
@@ -14,6 +14,7 @@ class OffersController < ApplicationController
   # GET /offers/1.json
   def show
     @offer.increment!(:view_count)
+    @offers = Offer.where(category: @offer.category).where.not(id: @offer.id).all_ordered
   end
 
   # GET /offers/new
@@ -33,7 +34,7 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to offers_path, notice: 'Offer was successfully created.' }
+        format.html { redirect_to offer_path @offer, notice: 'Offer was successfully created.' }
         format.json { render :show, status: :created, location: @offer }
       else
         format.html { render :new }
@@ -47,7 +48,7 @@ class OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        format.html { redirect_to offers_path, notice: 'Offer was successfully updated.' }
+        format.html { redirect_to offer_path @offer, notice: 'Offer was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer }
       else
         format.html { render :edit }
