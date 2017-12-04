@@ -1,0 +1,9 @@
+<h4>Categories</h4>
+
+<div class='list-group'>
+  <%= link_to 'All', home_index_path, class: 'list-group-item'%>
+
+  <% @categories.each do |category| %>
+    <%= link_to category.category.capitalize, home_index_path(category: category.category), class: 'list-group-item' %>
+  <% end %>
+</div>

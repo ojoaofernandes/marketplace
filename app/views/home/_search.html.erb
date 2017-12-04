@@ -1,0 +1,12 @@
+<h4>Search</h4>
+
+<div class="card card-default mb-3">
+  <div class="card-body p-3">
+    <%= form_tag home_index_path, method: 'GET' do %>
+      <div class="form-group">
+        <%= text_field_tag :search, nil, class: "form-control", placeholder: "What you are looking for?" %>
+      </div>
+    <%= submit_tag "Search", name: nil, class: 'btn btn-success btn-block' %>
+    <% end %>
+  </div>
+</div>
