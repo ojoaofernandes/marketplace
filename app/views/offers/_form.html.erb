@@ -11,32 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :offer_title %>
+    <%= form.text_field :title, id: :offer_title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :category %>
-    <%= form.text_field :category, id: :offer_category %>
+    <%= form.text_field :category, id: :offer_category, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
-    <%= form.text_field :price, id: :offer_price %>
+    <%= form.text_field :price, id: :offer_price, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :offer_description %>
+    <%= form.text_area :description, id: :offer_description, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :photos %>
-    <%= form.text_field :photos, id: :offer_photos %>
+    <%= form.text_field :photos, id: :offer_photos, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit nil, class: 'btn btn-success' %>
+  <%= link_to 'Back', offers_path, class: 'btn btn-light' %>
 <% end %>
