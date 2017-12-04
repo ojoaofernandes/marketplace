@@ -1,4 +1,4 @@
-<%= title 'My Offers' %>
+<%= title 'My offers' %>
 <hr>
 
 <table class="table table-bordered table-striped">
@@ -8,7 +8,7 @@
       <th>Category</th>
       <th>Price</th>
       <th>Description</th>
-      <th>Photos</th>
+      <th>Photo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,10 +20,10 @@
         <td><%= offer.category %></td>
         <td><%= offer.price %></td>
         <td><%= offer.description %></td>
-        <td><%= offer.photos %></td>
+        <td><%= image_tag(offer.photo.url, class: 'img-fluid') unless offer.photo.file.nil? %></td>
         <td><%= link_to 'Show', offer %></td>
         <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %></td>
       </tr>
     <% end %>
   </tbody>
